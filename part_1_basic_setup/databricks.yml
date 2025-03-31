@@ -1,0 +1,31 @@
+bundle:
+  name: bundle_tutorial
+
+
+include:
+  - resources/*.yml
+
+targets:
+
+  development:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-3661403342973631.11.azuredatabricks.net
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+
+
+  production:
+    mode: production
+    default: false
+    workspace:
+      host: https://adb-3661403342973631.11.azuredatabricks.net
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+#    variables:
+#      warehouse_id: ...
+#      variable_name: ..
+#    permissions:
+#      - group_name: group
+#        level: CAN_RUN
+#      - service_principal_name: sp_name...
+#        level: CAN_MANAGE

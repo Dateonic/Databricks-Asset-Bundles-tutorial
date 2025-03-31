@@ -1,0 +1,15 @@
+resources:
+  jobs:
+    example_job:
+      name: Example job
+      tasks:
+
+        - task_key: python_task
+          notebook_task:
+            notebook_path: ../src/run_hello.py
+
+        - task_key: sql_task
+          depends_on:
+            - task_key: python_task
+          notebook_task:
+            notebook_path: ../src/hello.sql
