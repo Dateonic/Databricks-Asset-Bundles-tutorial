@@ -1,18 +1,25 @@
 bundle:
   name: bundle_tutorial
 
-
 include:
   - resources/*.yml
 
-targets:
+variables:
+  var_name:
+    description: Description of this variable
+    type: string
 
+targets:
   development:
     mode: development
     default: true
     workspace:
-      host: https://adb-*****************.**.azuredatabricks.net
+      host: https://adb-3661403342973631.11.azuredatabricks.net
       root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      var_name: "this_is_example_variable"
+
+
 
 
 #  production:

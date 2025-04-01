@@ -1,0 +1,45 @@
+resources:
+  jobs:
+    test_for_each_job:
+      name: test_for_each_job
+
+#      trigger:
+#        periodic:
+#          interval: 1
+#          unit: DAYS
+#
+
+      parameters:
+        - name: catalog
+          default: "dabs_tutorial_catalog"
+        - name: schema
+          default: "part_3_for_each"
+
+      tasks:
+        - task_key: create_brand_tables
+          description: Get all brand names from the seeds static dimension reference table
+          notebook_task:
+            notebook_path: ../src/create_brands.sql
+
+        - task_key: get_brands
+          depends_on:
+            - task_key: create_brand_tables
+          description: Get all brand names from the seeds static dimension reference table
+          notebook_task:
+            notebook_path: ../src/get_brands.py
+            base_parameters:
+              table: brands
+              id: '4'
+
+        - task_key: for_each_execute
+          depends_on:
+            - task_key: get_brands
+          for_each_task:
+            inputs: '{{ tasks.get_brands.values.brand_suffix }}'
+            concurrency: 10
+            task:
+              task_key: for_each_execute_task
+              notebook_task:
+                notebook_path: ../src/action_for_each.sql
+                base_parameters:
+                  brand_suffix: "{{input}}"

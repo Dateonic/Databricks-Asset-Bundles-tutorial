@@ -1,0 +1,12 @@
+resources:
+  jobs:
+    multiple_jobs:
+      name: multiple_jobs
+      tasks:
+        - task_key: first_job
+          run_job_task:
+            job_id: ${resources.jobs.first_job.id}
+
+        - task_key: second_job
+          run_job_task:
+            job_id: ${resources.jobs.second_job.id}

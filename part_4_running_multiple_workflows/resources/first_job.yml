@@ -1,0 +1,9 @@
+resources:
+  jobs:
+    first_job:
+      name: first_job
+
+      tasks:
+        - task_key: empty_profile_table
+          notebook_task:
+            notebook_path: ../src/first_task.sql

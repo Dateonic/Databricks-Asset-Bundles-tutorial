@@ -1,0 +1,27 @@
+resources:
+  jobs:
+    example_job:
+      name: Passing parameters
+
+      # local parameters
+      parameters:
+        - name: local_p
+          default: "local parameter"
+
+      tasks:
+        - task_key: passing_params_python
+          notebook_task:
+            notebook_path: ../src/passing_params_python.py
+            base_parameters:
+              parameter: this_is_a_parameter
+              var_from_config: ${var.var_name}
+
+        - task_key: passing_params_sql
+          notebook_task:
+            notebook_path: ../src/passing_params_sql.sql
+
+            #only task parameters
+            base_parameters:
+              parameter: this_is_a_parameter
+              #global parameter
+              var_from_config: ${var.var_name}

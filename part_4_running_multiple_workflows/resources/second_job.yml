@@ -1,0 +1,13 @@
+resources:
+  jobs:
+    second_job:
+      name: second_job
+
+      tasks:
+        - task_key: empty_profile_table
+          notebook_task:
+            notebook_path: ../src/second_task.sql
+            # base_parameters:
+            #   catalog: "${var.catalog}"
+            #   schema: "${var.schema}"
+            #   table_name: "golden_profiles_tmp"
