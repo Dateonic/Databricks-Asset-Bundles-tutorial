@@ -20,9 +20,6 @@ targets:
     variables:
       var_name: "this_is_example_variable"
 
-
-
-
 #  production:
 #    mode: production
 #    default: false

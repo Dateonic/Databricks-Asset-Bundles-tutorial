@@ -3,12 +3,6 @@ resources:
     test_for_each_job:
       name: test_for_each_job
 
-#      trigger:
-#        periodic:
-#          interval: 1
-#          unit: DAYS
-#
-
       parameters:
         - name: catalog
           default: "dabs_tutorial_catalog"
@@ -29,7 +23,6 @@ resources:
             notebook_path: ../src/get_brands.py
             base_parameters:
               table: brands
-              id: '4'
 
         - task_key: for_each_execute
           depends_on:

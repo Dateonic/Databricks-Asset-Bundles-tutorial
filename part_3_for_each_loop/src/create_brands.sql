@@ -1,11 +1,5 @@
 -- Databricks notebook source
 
--- IDENTIFIER(CONCAT_WS('.',:catalog, :schema, :brand_suffix))
-
--- CREATE OR REPLACE TABLE customerdev.bronze.brands (
---     brand_suffix STRING,
---     created_at TIMESTAMP
--- );
 CREATE OR REPLACE TABLE IDENTIFIER(CONCAT_WS('.',:catalog, :schema, 'brands')) (
     brand_suffix STRING,
     created_at TIMESTAMP
