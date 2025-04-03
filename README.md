@@ -2,10 +2,10 @@
 Databricks Asset Bundles tutorial
 
 In this tutorial you'll learn about
-- What are Databricks Asset Bundles (DABs)
-- What are they used for
-- Basic setup
-- First workflow created through bundles
+- How to run Python and SQL files with all-purpose compute
+- How to pass local and global parameters in DABs
+- How to do a for_each loop in DABs
+- How to run multiple jobs in one main workflow
 
 Useful links:
 
