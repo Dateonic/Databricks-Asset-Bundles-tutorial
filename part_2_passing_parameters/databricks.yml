@@ -1,7 +1,6 @@
 bundle:
   name: bundle_tutorial
 
-
 include:
   - resources/*.yml
 
