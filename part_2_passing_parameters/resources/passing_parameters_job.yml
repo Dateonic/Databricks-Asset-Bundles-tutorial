@@ -14,7 +14,6 @@ resources:
             notebook_path: ../src/passing_params_python.py
             base_parameters:
               parameter: this_is_a_parameter
-              var_from_config: ${var.var_name}
 
         - task_key: passing_params_sql
           notebook_task:
@@ -23,5 +22,3 @@ resources:
             #only task parameters
             base_parameters:
               parameter: this_is_a_parameter
-              #global parameter
-              var_from_config: ${var.var_name}
